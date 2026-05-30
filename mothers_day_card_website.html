@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Mother's Day</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffe4ec, #fff8f0);
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #5b2b35;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 430px;
+      text-align: center;
+    }
+
+    .card-wrapper {
+      perspective: 1200px;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      min-height: 620px;
+      border-radius: 28px;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+      cursor: pointer;
+      box-shadow: 0 20px 60px rgba(120, 40, 70, 0.25);
+    }
+
+    .card.open {
+      transform: rotateY(180deg);
+    }
+
+    .front, .inside {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #fffdfb;
+      border: 2px solid rgba(255, 160, 180, 0.6);
+    }
+
+    .front {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .front img {
+      width: 100%;
+      max-height: 430px;
+      object-fit: contain;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      background: #fff3f7;
+    }
+
+    .front h1 {
+      font-size: 2rem;
+      margin: 0 0 10px;
+      color: #c64f73;
+    }
+
+    .front p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .inside {
+      transform: rotateY(180deg);
+      padding: 28px;
+      overflow-y: auto;
+      text-align: left;
+      line-height: 1.65;
+    }
+
+    .inside h2 {
+      text-align: center;
+      color: #c64f73;
+      margin-top: 0;
+      font-size: 1.7rem;
+    }
+
+    .inside p {
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .signature {
+      text-align: right;
+      font-style: italic;
+      margin-top: 24px;
+      font-size: 1.1rem;
+    }
+
+    .hint {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: #7a4d58;
+    }
+
+    .heart {
+      font-size: 1.6rem;
+      animation: float 1.6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="card-wrapper">
+      <section class="card" id="card" aria-label="Mother's Day card. Click to open.">
+        <div class="front">
+          <!-- Replace drawing.jpg with the file name of your drawing -->
+          <img src="drawing.jpg" alt="Mother's Day drawing" />
+          <h1>Happy Mother's Day, Maman</h1>
+          <p>Tap to open your letter</p>
+          <div class="heart">♡</div>
+        </div>
+
+        <div class="inside">
+          <h2>Dear Maman,</h2>
+
+          <p>Happy Mother's Day.</p>
+
+          <p>I don't always say it, and sometimes I struggle to find the right words, but I need you to know something: I love you more than I could ever explain.</p>
+
+          <p>Thank you for every sacrifice you have made for me and for our family. Thank you for every sleepless night, every worry you carried silently, every difficult choice you made so that we could have opportunities and a better life.</p>
+
+          <p>As I grow older, I understand more and more just how much strength it took. You are one of the strongest women I know. Strong in your heart, strong in your mind, strong in your determination, and strong in your love.</p>
+
+          <p>Everything I am working toward, every exam, every late night studying, every dream I have for the future, is driven by the desire to make you proud and to give back even a small part of everything you have given me.</p>
+
+          <p>One day, I want to give you the life you deserve — the peace, comfort, happiness, and freedom that you have spent so many years helping others achieve.</p>
+
+          <p>I know I don't always show it, but please never doubt how much I love you. I love you with all my heart. I am proud to be your daughter.</p>
+
+          <p>No matter where life takes me, no matter how old I become, I will always be your little girl.</p>
+
+          <p class="signature">With all my love,<br />Your daughter</p>
+        </div>
+      </section>
+    </div>
+
+    <p class="hint">Click the card again to close it.</p>
+  </main>
+
+  <script>
+    const card = document.getElementById('card');
+
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
